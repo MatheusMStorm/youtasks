@@ -2,14 +2,11 @@ package com.storm.youtasks.domain.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity(name = "tab_tarefa")
 public class Tarefa {
@@ -24,9 +21,6 @@ public class Tarefa {
     private LocalDate dataCriacao;
     private LocalDate conclusao;
     private boolean concluida;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Usuario usuarioResponsavel;
 
     public Long getId() {
         return id;
@@ -64,12 +58,5 @@ public class Tarefa {
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
     }
-    public Usuario getUsuarioResponsavel() {
-        return usuarioResponsavel;
-    }
-    public void setUsuarioResponsavel(Usuario usuarioResponsavel) {
-        this.usuarioResponsavel = usuarioResponsavel;
-    }
-
     
 }
